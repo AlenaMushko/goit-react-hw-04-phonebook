@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { Form, FormInput, FormButton } from './ContactForm.styled';
@@ -19,14 +19,16 @@ export const ContactForm = ({ onSubmit }) => {
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
-
-    if (name === 'name') {
-      setName(value);
-    }
-
-    if (name === 'number') {
-      setNumber(value);
-    }
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+    case "number":
+         setNumber(value);
+        break;
+      default:
+        break;
+    } 
   };
 
   return (
